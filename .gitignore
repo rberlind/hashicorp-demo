@@ -1,0 +1,6 @@
+.DS_Store
+.vagrant
+.terraform
+NotesForInstallingNomadConsulVaultInAWS.txt
+vagrant.pem
+data

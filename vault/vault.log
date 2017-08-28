@@ -1,0 +1,12 @@
+==> Vault server configuration:
+
+                     Cgo: disabled
+              Listener 1: tcp (addr: "127.0.0.1:8200", cluster address: "127.0.0.1:8201", tls: "disabled")
+               Log Level: info
+                   Mlock: supported: true, enabled: false
+                 Storage: file
+                 Version: Vault v0.8.1
+             Version Sha: 8d76a41854608c547a233f2e6292ae5355154695
+
+==> Vault server started! Log data will stream in below:
+
