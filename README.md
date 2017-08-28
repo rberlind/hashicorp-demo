@@ -48,7 +48,6 @@ You should see "Success! Data written to: aws/config/root"
 You can now use Packer and Terraform to provision your AWS EC2 instances. Terraform has already been configured to retrieve AWS credentials from your local Vault server.
 
 I've already used Packer to create a public Amazon Machine Image (AMI), ami-ed7f7296, which you can use as the basis for your EC2 instances. This AMI only exists in the AWS us-east-1 region. If you want to create a similar AMI in a different region or if you make any changes to any of the files in the aws or shared directories, you will need to create your own AMI with Packer. This is very simple. Starting from the /home/vagrant directory inside your Vagrant VM, do the following (being sure to specify the region in packer.json if different from us-east-1):
-
 ```
 cd aws/packer
 packer build packer.json
@@ -81,7 +80,7 @@ I've provided a script to automate as much of the initialization of the AWS Vaul
 1. `export VAULT_TOKEN=<root_token>`, replacing \<root_token\> with the root token returned in the previous step.
 1. Run `./setup_vault.sh` to do the rest of the Vault initialization and to start the Nomad server.  You should see output like this:
 
-Before running this, you must first do the following:
+"Before running this, you must first do the following:
    vault init -key-shares=1 -key-threshold=1
 which will give you and Unseal Key 1 and Initial Root Token
    vault unseal
@@ -107,7 +106,7 @@ port           	22
 username       	root
 
 Success! Data written to: sys/policy/ssh_policy
-nomad start/running, process 28035
+nomad start/running, process 28035"
 
 ## Verification Steps
 Verify that Nomad is running with `ps -ef | grep nomad`. You should see "/usr/local/bin/nomad agent -config=/etc/nomad.d/nomad.hcl".
