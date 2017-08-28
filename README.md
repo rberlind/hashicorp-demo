@@ -108,6 +108,24 @@ I've provided a script to automate as much of the initialization of the AWS Vaul
 
 >Testing that we can generate a password
 
+>Key            	Value
+
+>lease_id       	ssh/creds/otp_key_role/60849dd8-d537-f090-3723-19d379036b7b
+
+>lease_duration 	768h0m0s
+
+>lease_renewable	false
+
+>ip             	172.17.0.1
+
+>key            	5222138a-012e-a2c8-b035-100337777eb6
+
+>key_type       	otp
+
+>port           	22
+
+>username       	root
+
 >Success! Data written to: sys/policy/ssh_policy
 
 >nomad start/running, process 28035
