@@ -73,6 +73,8 @@ Please do connect to your server instance before continuing. You might also want
 ## Setting up the Vault server in AWS
 You now need to set up the Vault server on your EC2 Server instance so that Nomad can retrieve a dynamically generated password when running the catalogue-db task which creates and runs a MySQL database. This password will be passed into the Docker container running the catalogue-db database and will be assigned to the MYSQL_ROOT_PASSWORD environment variable which sets the MySQL password for the root user of the database.
 
+We're actually using the Vault SSH Secret Backend to generate [One-Time SSH Passwords](https://www.vaultproject.io/docs/secrets/ssh/one-time-ssh-passwords.html). I could not use the Vault MySQL Database Plugin because it requires a running database to dynamically generate database credentials. Unfortunately, the username and password actually used by the catalogue-db database are runtime are hard-coded in the Docker image's code. So, I could only dynamically generate the root user's password which the Docker image expects to be passed in via an environment variable.
+
 I've provided a script to automate as much of the initialization of the AWS Vault server as possible, but you still need to manually initialize and unseal it.  Please do the following steps on your server instance:
 
 1. Initialize your AWS Vault with `vault init -key-shares=1 -key-threshold=1`. Be sure to write down your unseal key and root token, and don't confuse these with the ones for the Vault server running inside your Vagrant VM.
