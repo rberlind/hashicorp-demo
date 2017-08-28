@@ -80,33 +80,32 @@ I've provided a script to automate as much of the initialization of the AWS Vaul
 1. `export VAULT_TOKEN=<root_token>`, replacing \<root_token\> with the root token returned in the previous step.
 1. Run `./setup_vault.sh` to do the rest of the Vault initialization and to start the Nomad server.  You should see output like this:
 
-"Before running this, you must first do the following:
-   vault init -key-shares=1 -key-threshold=1
-which will give you and Unseal Key 1 and Initial Root Token
-   vault unseal
-to which you must provide the Unseal Key 1
-   export VAULT_TOKEN=<Initial_Root_Token>
-Setting up Vault policy and role
-Policy 'nomad-server' written.
-Success! Data written to: auth/token/roles/nomad-cluster
-The generated Vault token is: a6065b61-1edb-0941-e5ee-ad44eff6a525
-Setting up the Vault SSH secret backend
-Successfully mounted 'ssh' at 'ssh'!
-Success! Data written to: ssh/roles/otp_key_role
-Testing that we can generate a password
-Key            	Value
----            	-----
-lease_id       	ssh/creds/otp_key_role/60849dd8-d537-f090-3723-19d379036b7b
-lease_duration 	768h0m0s
-lease_renewable	false
-ip             	172.17.0.1
-key            	5222138a-012e-a2c8-b035-100337777eb6
-key_type       	otp
-port           	22
-username       	root
-
-Success! Data written to: sys/policy/ssh_policy
-nomad start/running, process 28035"
+>Before running this, you must first do the following:
+>    vault init -key-shares=1 -key-threshold=1
+>which will give you and Unseal Key 1 and Initial Root Token
+>    vault unseal
+>to which you must provide the Unseal Key 1
+>    export VAULT_TOKEN=<Initial_Root_Token>
+>Setting up Vault policy and role
+>Policy 'nomad-server' written.
+>Success! Data written to: auth/token/roles/nomad-cluster
+>The generated Vault token is: a6065b61-1edb-0941-e5ee-ad44eff6a525
+>Setting up the Vault SSH secret backend
+>Successfully mounted 'ssh' at 'ssh'!
+>Success! Data written to: ssh/roles/otp_key_role
+>Testing that we can generate a password
+>Key            	Value
+>---            	-----
+>lease_id       	ssh/creds/otp_key_role/60849dd8-d537-f090-3723-19d379036b7b
+>lease_duration 	768h0m0s
+>lease_renewable	false
+>ip             	172.17.0.1
+>key            	5222138a-012e-a2c8-b035-100337777eb6
+>key_type       	otp
+>port           	22
+>username       	root
+>Success! Data written to: sys/policy/ssh_policy
+>nomad start/running, process 28035
 
 ## Verification Steps
 Verify that Nomad is running with `ps -ef | grep nomad`. You should see "/usr/local/bin/nomad agent -config=/etc/nomad.d/nomad.hcl".
