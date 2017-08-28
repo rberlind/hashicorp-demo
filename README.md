@@ -30,9 +30,11 @@ Your Vault server is now unsealded and ready to use, but we also want to add in 
 1. Mount the Vault AWS Backend with `vault mount aws`.
 1. Write your AWS keys to Vault, replacing \<your_key\> and \<your_secret_key\> with your actual AWS keys:
 
+```
 vault write aws/config/root \
  access_key=<your_key> \
  secret_key=<your_secret_key>
+```
 
 You should see "Success! Data written to: aws/config/root"
 
